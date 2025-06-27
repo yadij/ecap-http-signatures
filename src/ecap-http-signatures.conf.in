@@ -1,0 +1,6 @@
+loadable_modules lib@PROJECT_NAME@.so
+ecap_enable on
+
+ecap_service verify-request reqmod_precache ecap://@PROJECT_NAME@/@PROJECT_VERSION@/verify/request bypass=off
+acl signed-request req_header Signature .
+adaptation_access verify-request allow signed-request
